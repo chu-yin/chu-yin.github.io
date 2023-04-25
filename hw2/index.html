@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
 <body>
-<h1>let's give it a try</h1>
+<button id="set-alarm">Set alarm</button>
+<div id="output"></div>
+
+<script>
+    const output = document.querySelector('#output');
+    const button = document.querySelector('#set-alarm');
+
+    function setAlarm() {
+        let myPromise = new Promise(
+            function (resolve) {
+                setTimeout(resolve("Wake up"), 3000);
+            }
+        );
+
+        myPromise.then(
+            function (str) {
+                output.textContent = str;
+            }
+        );
+    }
+
+    button.addEventListener('click', setAlarm);
+</script>
 </body>
 </html>
